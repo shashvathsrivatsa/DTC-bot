@@ -1,6 +1,8 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 const { commands } = require("./commands");
 
+require('dotenv').config();
+
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -23,5 +25,5 @@ client.on("messageCreate", msg => {
     if (command) command.execute(msg, args);
 });
 
-client.login("MTQyNjI2MDYyMDY1ODg3MjM0MA.G1C5XU.r0z9H9ptHVUq_cjT1FgHFk0jSgP5fnM-VWzXfE");
+client.login(process.env.BOT_TOKEN);
 
